@@ -1,0 +1,12 @@
+# Use official Spark image
+FROM apache/spark:3.4.1
+
+# Set working directory
+WORKDIR /app
+
+# Copy the script and data files
+COPY scripts/anonymize_spark.py .
+COPY data/ /app/data/
+
+# Command to execute the script
+CMD ["spark-submit", "anonymize_spark.py"]
